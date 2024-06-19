@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .sticky_content-right {
+            padding-top: 50px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+        top: 10px;
+    display: flex;
+    overflow-y: auto;
+        }
+        .sticky_item {
+    background-color: #a40c0c;
+    border: .5px solid #267deb;
+    border-radius: .25rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    padding: 4rem;
+    display: flex;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 12.5rem;
+        }
+        .sticky_item._3 {
+    background-color:whitesmoke;
+    background-image: none;
+    border-color: #d20d0d;
+    border-radius: .25rem;
+    height: 100px;
+    width: 80%;
+    top: 1rem;
+}
+.img{
+   
+    height: 150px;
+    width: 150px;
+
+}
+.head{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: black;
+    font-size: 30px;
+    padding: 0px;
+    margin: 0px;
+
+}
+.des
+{
+    color: rgb(8, 14, 19);
+}
+.image
+{
+    position: relative;
+    left: -500px;
+    bottom: 10px;
+    
+}
+.title
+{
+    position: relative;
+    top: 40px;
+    margin-top: 20px;
+   
+    width: 850px;
+    left: 50px;
+    top: 50px;
+    padding: 0%;
+}
+
+.description
+{
+    position: relative;
+    bottom: 60px;
+   
+    width: 800px;
+    bottom: 60px;
+    left: 50px;
+}
+.red
+{
+    position: relative;
+    bottom: 70px;
+    left: 500px;
+}
+.fil
+{
+    
+    position: fixed;
+    left: 1050px;
+    bottom: 700px;
+}
+    </style>
+</head>
+<body >
+   
+    
+    <img src="icons8-news.gif" height="40px" width="40px" style="position: relative; left: 45%;"><span style="padding-bottom: 10px;"><h style="text-align: center; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color: #d20d0d;font-size:40px;font-weight: 200px; position: relative; left: 45%; margin: 4px;margin-bottom: 10px;padding-bottom: 10px;"><b> NEWS</b></h></span>
+    <div style="background-color: black; height: 680px;width: 100%;border-radius: 15px; overflow-y: auto;position: relative;" class="sticky_content-right">
+        <div class="fil">
+
+       
+        <form action="/" id="form" class="form" method="POST">
+            
+            <select name="category" class="form-select">
+              <option value="">Any Category</option>
+              <option value="1">Finance</option>
+              <option value="2">Sports</option>
+              <option value="3">Movie</option>
+              <option value="4">politics</option>
+            </select>
+           
+            <input type="text" name="country" placeholder="Country">
+            <button type="submit" class="form-submit">Go</button>
+          </form> </div>
+       
+            <% if(locals.newx.length >0) { %> 
+
+                 
+                <% newx.forEach(function(news, index){%>
+                    <% if(news.urlToImage){ %>
+
+                 <div class="sticky_item _3">
+
+                     <div class="title">
+                        <p class="head"> <%= news.title %></p> 
+                    </div>
+                    <div class="image" >
+                            <img class="img" src="<%=news.urlToImage %>" alt="..." >
+                    </div>
+                    <div class="description">
+                        <p class="des"> <%= news.description %> </p>
+                    </div>
+                    <div class="red">
+                        <a href="<%=news.url %>"> Read More</a>
+                    </div>
+                   
+                  </div>
+                  <% } %>
+                <% }) %>
+            
+            <% } else { %>
+                <p style="color: aliceblue;">No items found</p>
+            <% } %>
+       
+       
+
+        
+        
+        
+    </div>
+</body>
+</html>
