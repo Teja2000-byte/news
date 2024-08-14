@@ -18,7 +18,7 @@ function dis()
 }
 app.get("/", async (req, res) => {
     try {
-        const response = await axios.get("https://newsapi.org/v2/top-headlines?apiKey=1235311a10564850bd45dd4a2400da4c&q=us&language=en");
+        const response = await axios.get("https://newsapi.org/v2/top-headlines?apiKey=16057bdcb0544151af91b4b4421aea6f&q=us&language=en");
         const result = response.data;
         console.log(result);
 
@@ -34,7 +34,7 @@ app.post("/", async (req,res) => {
     try {
         const country = req.body.country;
         const category=req.body.category;
-        const response = await axios.get(`https://newsapi.org/v2/top-headlines?apiKey=1235311a10564850bd45dd4a2400da4c&q=${country}&q=${category}&language=en`);
+        const response = await axios.get(`https://newsapi.org/v2/top-headlines?apiKey=16057bdcb0544151af91b4b4421aea6f&q=${country}&q=${category}&language=en`);
         const result = response.data;
         console.log(result);
 
